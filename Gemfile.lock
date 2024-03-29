@@ -1,14 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    ap (0.1.1)
-      httparty (>= 0.7.7)
     base64 (0.2.0)
-    httparty (0.21.0)
-      mini_mime (>= 1.0.0)
-      multi_xml (>= 0.5.2)
-    mini_mime (1.1.5)
-    multi_xml (0.6.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.7.1)
@@ -33,7 +26,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  ap
   puma
   sinatra
 
