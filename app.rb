@@ -6,32 +6,36 @@ class CheckServer < Sinatra::Base
 
   @@sesssions = {}
 
-  get '/:id' do
-    JSON.pretty_generate @@sesssions[params[:id]]
+  get '/:scan' do
+    JSON.pretty_generate @@sesssions[params[:scan]]
   end
 
-  get '/:id/rfi' do
+  get '/:scan/rfi' do
     '705cd559b16e6946826207c2199bd890'
   end
 
-  get '/:id/ping' do
-    @@sesssions[params[:id]] = request.env
+  get '/:scan/ping/:id' do
+    @@sesssions[params[:scan]] ||= {}
+    @@sesssions[params[:scan]][params[:id]] = request.env
   end
 
-  post '/:id/ping' do
-    @@sesssions[params[:id]] = request.env
+  post '/:scan/ping/:id' do
+    @@sesssions[params[:scan]] ||= {}
+    @@sesssions[params[:scan]][params[:id]] = request.env
   end
 
-  put '/:id/ping' do
-    @@sesssions[params[:id]] = request.env
+  put '/:scan/ping/:id' do
+    @@sesssions[params[:scan]] ||= {}
+    @@sesssions[params[:scan]][params[:id]] = request.env
   end
 
-  delete '/:id/ping' do
-    @@sesssions[params[:id]] = request.env
+  delete '/:scan/ping' do
+    @@sesssions[params[:scan]] ||= {}
+    @@sesssions[params[:scan]][params[:id]] = request.env
   end
 
-  delete '/:id' do
-    @@sesssions.delete params[:id]
+  delete '/:scan' do
+    @@sesssions.delete params[:scan]
   end
 
 end
