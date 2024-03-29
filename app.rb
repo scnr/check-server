@@ -29,7 +29,7 @@ class CheckServer < Sinatra::Base
     @@sesssions[params[:scan]][params[:id]] = request.env
   end
 
-  delete '/:scan/ping' do
+  delete '/:scan/ping/:id' do
     @@sesssions[params[:scan]] ||= {}
     @@sesssions[params[:scan]][params[:id]] = request.env
   end
