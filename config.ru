@@ -1,3 +1,3 @@
-require File.absolute_path("app.rb")
+require_relative "app"
 
 run CheckServer
